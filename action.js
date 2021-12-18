@@ -75,6 +75,12 @@ module.exports = class {
 
     const issue = await this.Jira.createIssue(payload)
 
+    const issueId = issue
+    const { assignee } = argv.assignee
+
+    console.log(`Adding assignee to ${issueId}: \n${assignee}`)
+    await this.Jira.addAssignee(issueId, { name: assignee })
+
     return { issue: issue.key }
   }
 

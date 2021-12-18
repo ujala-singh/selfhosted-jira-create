@@ -21,6 +21,15 @@ class Jira {
       { method: 'POST', body })
   }
 
+  async addAssignee (issueId, data) {
+    return this.fetch('addAssignee', {
+      pathname: `/rest/api/2/issue/${issueId}/assignee`,
+    }, {
+      method: 'PUT',
+      body: data,
+    })
+  }
+
   async getIssue (issueId, query = {}) {
     const { fields = [], expand = [] } = query
 
