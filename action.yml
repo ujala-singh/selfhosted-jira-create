@@ -16,6 +16,9 @@ inputs:
   description:
     description: Issue description
     required: false
+  assignee:
+    description: Assignee
+    required: true
   fields:
     description: Additional fields in JSON format
     required: false
